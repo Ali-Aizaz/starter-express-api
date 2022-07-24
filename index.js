@@ -20,7 +20,7 @@ const appleLogin = async (req, res, next) => {
   if (provider === "apple") {
     //validate apple signin
     const { identityToken, user } = response.response;
-    const jwToken = jwt.decoded(identityToken, { complete: true });
+    const jwToken = jwt.decode(identityToken, { complete: true });
     const kid = jwToken.header.kid;
 
     const appleKey = await getAppleSigninKey(kid);
