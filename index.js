@@ -72,6 +72,10 @@ app.all("/", (req, res) => {
   res.send("Yo Ali Bro!");
 });
 
+app.post("/testPost", (req, res, next) => {
+  res.status(200).json({ success: true, message: "Working post request" });
+});
+
 app.post("/auth", appleLogin);
 
 app.listen(process.env.PORT || 8080);
