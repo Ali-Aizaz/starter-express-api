@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const app = express();
 const bodyparser = require("body-parser");
 const jwt = require("jsonwebtoken");
-const jwksClient = require("jwks-rsa")
+const jwksClient = require("jwks-rsa");
 
 class ErrorResponse extends Error {
   constructor(message, errorCode) {
@@ -67,11 +67,11 @@ const getAppleSigninKey = (kid) => {
   });
 };
 
-app.all('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Yo Ali Bro!')
-})
+app.all("/", (req, res) => {
+  console.log("Just got a request!");
+  res.send("Yo Ali Bro!");
+});
 
-app.post('/auth',appleLogin)
+app.post("/auth", appleLogin);
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 8080);
