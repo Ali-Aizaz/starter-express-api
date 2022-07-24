@@ -17,7 +17,6 @@ app.use(bodyparser.json({ limit: "50mb" }));
 
 const appleLogin = async (req, res, next) => {
   const { provider, response } = req.body;
-
   if (provider === "apple") {
     //validate apple signin
     const { identityToken, user } = response.response;
@@ -34,6 +33,8 @@ const appleLogin = async (req, res, next) => {
       return next(new ErrorResponse("Apple Server Error", 500));
     }
     res.status(200).json({ "Sign in with apple success ": payload });
+  } else {
+    res.json({ message: "Unauthorized Provider" });
   }
 };
 
