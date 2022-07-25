@@ -17,6 +17,7 @@ app.use(bodyparser.json({ limit: "50mb" }));
 
 const appleLogin = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { provider, response } = req.body;
     if (provider === "apple") {
       //validate apple signin
